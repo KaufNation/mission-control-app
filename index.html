@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mission Control for Mac</title>
+<style>
+body{font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:40rem;margin:4rem auto;padding:0 1.25rem;color:#1d1d1f;background:#fff}
+h1{font-size:2.2rem;margin:0 0 .4rem}.lead{color:#424245;margin:0 0 1.6rem}
+.button{display:inline-block;background:#0071e3;color:#fff;text-decoration:none;padding:.8rem 1.6rem;border-radius:.7rem;font-weight:600;font-size:1.05rem}
+.small{color:#6e6e73;font-size:.85rem;margin:.6rem 0 2.2rem}h2{font-size:1.15rem;margin:2rem 0 .6rem}ol{padding-left:1.3rem}li{margin:.5rem 0}
+b{font-weight:600}
+@media (prefers-color-scheme:dark){body{background:#1c1c1e;color:#f5f5f7}.lead{color:#c7c7cc}.small{color:#a1a1a6}}
+</style></head><body>
+<h1>Mission Control</h1>
+<p class="lead">Run agents and tools on your Mac, and open them from your other Macs.</p>
+<a class="button" href="https://github.com/KaufNation/mission-control-app/releases/latest/download/Mission-Control.dmg">Download for Mac</a>
+<p class="small">For Macs with Apple silicon (M1 or newer), macOS 15 or newer. It updates itself.</p>
+
+<h2>Install</h2>
+<ol>
+<li>Open the downloaded <b>Mission-Control.dmg</b> and drag <b>Mission Control</b> onto <b>Applications</b>.</li>
+<li>Open Mission Control from your Applications folder.</li>
+<li>If your Mac says it cannot check the app: open <b>System Settings › Privacy &amp; Security</b>, scroll down, click
+<b>Open Anyway</b>, and open it again.</li>
+<li>Click <b>Set up This Mac</b>. Mission Control now runs on this Mac. Its agents work without approval prompts: they read
+and change files and run commands on this Mac as you.</li>
+</ol>
+
+<h2>Use it from your other Macs</h2>
+<ol>
+<li>Install <a href="https://tailscale.com/download/mac">Tailscale</a> on each Mac and sign in.</li>
+<li>On the Mac that runs your agents: in Mission Control's <b>Settings</b>, turn on <b>Let other Macs connect to this Mac</b>,
+and in <b>System Settings › General › Sharing</b>, turn on <b>Remote Login</b>.</li>
+<li>Install Mission Control on your other Macs. That Mac shows up in them by itself.</li>
+</ol>
+<p>Connections go one way: your other Macs open that Mac, not the other way around. To let someone else in, share that Mac
+with them in Tailscale. They get a session of their own, with full use of that Mac's user account (its files, agents
+and accounts), so share it only with people you would give that account to.</p>
+</body></html>
