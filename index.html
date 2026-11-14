@@ -20,7 +20,7 @@ b{font-weight:600}
 <li>If your Mac says it cannot check the app: open <b>System Settings › Privacy &amp; Security</b>, scroll down, click
 <b>Open Anyway</b>, and open it again.</li>
 <li>Click <b>Set up This Mac</b>. Mission Control now runs on this Mac. Its agents work without approval prompts: they read
-and change files and run commands on this Mac as you.</li>
+and change files and run commands on this Mac as you. One starts right away, in the Agent Launcher tab.</li>
 </ol>
 
 <h2>Use it from your other Macs</h2>
@@ -28,9 +28,10 @@ and change files and run commands on this Mac as you.</li>
 <li>Install <a href="https://tailscale.com/download/mac">Tailscale</a> on each Mac and sign in.</li>
 <li>On the Mac that runs your agents: in Mission Control's <b>Settings</b>, turn on <b>Let other Macs connect to this Mac</b>,
 and in <b>System Settings › General › Sharing</b>, turn on <b>Remote Login</b>.</li>
-<li>Install Mission Control on your other Macs. That Mac shows up in them by itself.</li>
+<li>Install Mission Control on your other Macs. That Mac shows up in each of them: click <b>Join</b>.</li>
 </ol>
-<p>Connections go one way: your other Macs open that Mac, not the other way around. To let someone else in, share that Mac
-with them in Tailscale. They get a session of their own, with full use of that Mac's user account (its files, agents
-and accounts), so share it only with people you would give that account to.</p>
+<p>Connections go one way: your other Macs open that Mac, not the other way around. Anyone else who can reach that Mac on
+Tailscale can only ask to join; you allow or deny each one in that Mac's <b>Settings</b>. Someone you allow gets a session of
+their own, with full use of that Mac's user account (its files, agents and accounts), so allow only people you would
+give that account to.</p>
 </body></html>
