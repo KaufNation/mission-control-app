@@ -11,7 +11,7 @@ b{font-weight:600}
 <h1>Mission Control</h1>
 <p class="lead">Run agents and tools on your Mac, and open them from your other Macs.</p>
 <a class="button" href="https://github.com/KaufNation/mission-control-app/releases/latest/download/Mission-Control.dmg">Download for Mac</a>
-<p class="small">For Macs with Apple silicon (M1 or newer), macOS 15 or newer. It updates itself.</p>
+<p class="small">For Macs with Apple silicon (M1 or newer), macOS 15 or newer. It updates itself: a new version installs without asking, once you have been away from the Mac for 10 minutes.</p>
 
 <h2>Install</h2>
 <ol>
@@ -27,11 +27,16 @@ and change files and run commands on this Mac as you. One starts right away, in 
 <ol>
 <li>Install <a href="https://tailscale.com/download/mac">Tailscale</a> on each Mac and sign in.</li>
 <li>On the Mac that runs your agents: in Mission Control's <b>Settings</b>, turn on <b>Let other Macs connect to this Mac</b>,
-and in <b>System Settings › General › Sharing</b>, turn on <b>Remote Login</b>.</li>
+and in <b>System Settings › General › Sharing</b>, turn on <b>Remote Login</b>. Remote Login takes SSH connections on
+every network that Mac is on, not only Tailscale: click its <b>ⓘ</b> and allow only your own user.</li>
 <li>Install Mission Control on your other Macs. That Mac shows up in each of them: click <b>Join</b>.</li>
 </ol>
 <p>Connections go one way: your other Macs open that Mac, not the other way around. Anyone else who can reach that Mac on
 Tailscale can only ask to join; you allow or deny each one in that Mac's <b>Settings</b>. Someone you allow gets a session of
 their own, with full use of that Mac's user account (its files, agents and accounts), so allow only people you would
 give that account to.</p>
+
+<h2>Remove it</h2>
+<p>Open Terminal, run <code>~/Services/mission-control-gen4/host/uninstall-this-mac</code>, then drag Mission Control from
+Applications to the Trash. That stops its agents and services and the sharing; your files stay, and it says where.</p>
 </body></html>
