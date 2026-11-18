@@ -1,42 +1,27 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mission Control for Mac</title>
+<meta name="robots" content="noindex,nofollow"><title>Mission Control</title>
 <style>
-body{font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:40rem;margin:4rem auto;padding:0 1.25rem;color:#1d1d1f;background:#fff}
-h1{font-size:2.2rem;margin:0 0 .4rem}.lead{color:#424245;margin:0 0 1.6rem}
-.button{display:inline-block;background:#0071e3;color:#fff;text-decoration:none;padding:.8rem 1.6rem;border-radius:.7rem;font-weight:600;font-size:1.05rem}
-.small{color:#6e6e73;font-size:.85rem;margin:.6rem 0 2.2rem}h2{font-size:1.15rem;margin:2rem 0 .6rem}ol{padding-left:1.3rem}li{margin:.5rem 0}
-b{font-weight:600}
-@media (prefers-color-scheme:dark){body{background:#1c1c1e;color:#f5f5f7}.lead{color:#c7c7cc}.small{color:#a1a1a6}}
+body{font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:26rem;margin:6rem auto;padding:0 1.25rem;color:#1d1d1f;background:#fff}
+h1{font-size:2rem;margin:0 0 .6rem}p{color:#424245}input{font:inherit;width:100%;box-sizing:border-box;padding:.6rem .8rem;border:1px solid #c7c7cc;border-radius:.6rem;margin:.4rem 0 .8rem}
+button{font:inherit;font-weight:600;background:#0071e3;color:#fff;border:0;border-radius:.7rem;padding:.65rem 1.4rem;cursor:pointer}#err{color:#c0392b;min-height:1.5em}
+@media (prefers-color-scheme:dark){body{background:#1c1c1e;color:#f5f5f7}p{color:#c7c7cc}input{background:#2c2c2e;color:#f5f5f7;border-color:#48484a}}
 </style></head><body>
 <h1>Mission Control</h1>
-<p class="lead">Run agents and tools on your Mac, and open them from your other Macs.</p>
-<a class="button" href="https://github.com/KaufNation/mission-control-app/releases/latest/download/Mission-Control.dmg">Download for Mac</a>
-<p class="small">For Macs with Apple silicon (M1 or newer), macOS 15 or newer. It updates itself: a new version installs without asking, once you have been away from the Mac for 10 minutes.</p>
-
-<h2>Install</h2>
-<ol>
-<li>Open the downloaded <b>Mission-Control.dmg</b> and drag <b>Mission Control</b> onto <b>Applications</b>.</li>
-<li>Open Mission Control from your Applications folder.</li>
-<li>If your Mac says it cannot check the app: open <b>System Settings › Privacy &amp; Security</b>, scroll down, click
-<b>Open Anyway</b>, and open it again.</li>
-<li>Click <b>Set up This Mac</b>. Mission Control now runs on this Mac. Its agents work without approval prompts: they read
-and change files and run commands on this Mac as you. One starts right away, in the Agent Launcher tab.</li>
-</ol>
-
-<h2>Use it from your other Macs</h2>
-<ol>
-<li>Install <a href="https://tailscale.com/download/mac">Tailscale</a> on each Mac and sign in.</li>
-<li>On the Mac that runs your agents: in Mission Control's <b>Settings</b>, turn on <b>Let other Macs connect to this Mac</b>,
-and in <b>System Settings › General › Sharing</b>, turn on <b>Remote Login</b>. Remote Login takes SSH connections on
-every network that Mac is on, not only Tailscale: click its <b>ⓘ</b> and allow only your own user.</li>
-<li>Install Mission Control on your other Macs. That Mac shows up in each of them: click <b>Join</b>.</li>
-</ol>
-<p>Connections go one way: your other Macs open that Mac, not the other way around. Anyone else who can reach that Mac on
-Tailscale can only ask to join; you allow or deny each one in that Mac's <b>Settings</b>. Someone you allow gets a session of
-their own, with full use of that Mac's user account (its files, agents and accounts), so allow only people you would
-give that account to.</p>
-
-<h2>Remove it</h2>
-<p>Open Terminal, run <code>~/Services/mission-control-gen4/host/uninstall-this-mac</code>, then drag Mission Control from
-Applications to the Trash. That stops its agents and services and the sharing; your files stay, and it says where.</p>
+<p>For people who were invited. Enter the password you were given.</p>
+<form id="f"><input id="p" type="password" autocomplete="current-password" autofocus aria-label="Password"><button>Open</button></form>
+<p id="err" role="alert"></p>
+<script>
+const box={"s":"G4urBK1PJoZyCFW3e/Ja7A==","i":"pJOm1ABFA13PBks2","d":"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","r":600000};
+const bytes=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function open(password){
+  const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:bytes(box.s),iterations:box.r,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+  return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:bytes(box.i)},key,bytes(box.d)));
+}
+document.getElementById('f').addEventListener('submit',async e=>{
+  e.preventDefault();document.getElementById('err').textContent='';
+  try{const html=await open(document.getElementById('p').value);document.open();document.write(html);document.close();}
+  catch{document.getElementById('err').textContent='That is not the password.';}
+});
+</script>
 </body></html>
